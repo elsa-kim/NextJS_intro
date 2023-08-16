@@ -1,38 +1,48 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# NextJS introduction
 
-## Getting Started
+### pages
 
-First, run the development server:
+pages 안에 만드는 js 파일명이 url pathname, 파일 내용이 해당 주소 component
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+- component 이름은 크게 중요하지 않음
+- component가 export default 되어야 하는 것 중요
+- 파일명 아닌 페이지 들어가면 404 페이지 뜸
+- index.js : 오리지널 주소 페이지 ex)localhost:3000
+- jsx 사용시 React.js import 필요없음
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 소스코드
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+소스코드 안에 실제 HTML이 들어있어 유저가 매우 느린 연결을 하거나 자바스크립트 비활성화 상태에서도 유저는 HTML 볼 수 있음
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+- 초기상태 pre-rendering 함
+- 페이지 로딩 시 react.js가 넘겨받아 Hook 작동
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+#### hydration
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+react.js를 프론트엔드 안에서 실행하는 것
 
-## Learn More
+- next.js는 react.js를 백엔드에서 동작시켜 페이지 미리 만들어 component들 render 시키고 렌더링이 끝나면 HTML이 됨 => 소스코드에 넣음 => react.js 로딩 되었을 때 이미 존재하는 것들과 연결되어 react.js 앱이 됨
 
-To learn more about Next.js, take a look at the following resources:
+### CSS
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. 태그 안에 스타일 적용
+2. CSS modules 사용
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- 파일명 : .module.css
+- 클래스명 재사용 가능 : 페이지 빌드될 때 NextJS가 해당 클래스명 뒤 랜덤한 이름 붙여 충돌하지 않음
 
-## Deploy on Vercel
+3. styles JSX 사용
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- NextJS 고유기능
+- style 태그에 jsx prop 작성, 태그 내부에 괄호&백틱 후 작성
+- 컴포넌트 단위로 적용할 스타일 지정
+- 글로벌 스타일 지정 위해 style 태그에 global prop 추가 : 페이지 고려해야함
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### App Component
+
+모든 페이지에 전역적 스타일링, 설정 위해
+
+- pages 폴더 내 "\_app.js" 이름으로 생성
+- prop 두가지 불러옴
+  - component
+  - pageProps
