@@ -29,6 +29,7 @@ react.js를 프론트엔드 안에서 실행하는 것
 2. CSS modules 사용
 
 - 파일명 : .module.css
+- 사용법 : import styles from "파일 위치", classname={styles.클래스이름}
 - 클래스명 재사용 가능 : 페이지 빌드될 때 NextJS가 해당 클래스명 뒤 랜덤한 이름 붙여 충돌하지 않음
 
 3. styles JSX 사용
@@ -46,3 +47,16 @@ react.js를 프론트엔드 안에서 실행하는 것
 - prop 두가지 불러옴
   - component
   - pageProps
+
+### next.config.js
+
+#### redirects
+
+url에 특정주소(source) 입력시 정해둔 주소(destination)로 이동,
+뒤에 \* 입력시 해당부분 뒤 다 캐치
+
+- 유저가 알 수 있음
+
+#### rewrites
+
+- 유저가 알 수 없음(URL 변화 볼 수 없음)
