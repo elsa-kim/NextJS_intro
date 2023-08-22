@@ -60,3 +60,16 @@ url에 특정주소(source) 입력시 정해둔 주소(destination)로 이동,
 #### rewrites
 
 - 유저가 알 수 없음(URL 변화 볼 수 없음)
+
+### Server Side Rendering
+
+- 데이터 유효할 때 화면 보여짐
+- loading 없는 대신 API load 느리면 유저가 아무것도 못보는 상태로 오래 기다려야 함
+- getServerSideProps 이름으로 함수 생성 후 export
+- props 반환해주기
+- 서버쪽에서만 작동 ex) 여기에 API key 쓰면 절대 client에게 보여지지 않음
+
+### Client Side Rendering
+
+- static shell(ex. header, footer,nav bar, ...) 미리 보여지고 API에서 데이터 받아올때까지 loading
+- API load 느리면 유저는 로딩중 단계 오래 봐야 함
