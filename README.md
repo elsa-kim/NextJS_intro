@@ -10,6 +10,17 @@ pages 안에 만드는 js 파일명이 url pathname, 파일 내용이 해당 주
 - index.js : 오리지널 주소 페이지 ex)localhost:3000
 - jsx 사용시 React.js import 필요없음
 
+#### Dynamic Routs
+
+변수 포함하는 URL 위해 대괄호 안 변수명 적은 JS 파일 생성
+
+- useRouter 사용
+- query 프로퍼티 이름 = 파일명에 쓰인 변수명
+
+#### Catch All
+
+대괄호 안 ...변수명 적은 JS 파일 생성시 query.params로 불러올 수 있고 배열형식
+
 ### 소스코드
 
 소스코드 안에 실제 HTML이 들어있어 유저가 매우 느린 연결을 하거나 자바스크립트 비활성화 상태에서도 유저는 HTML 볼 수 있음
